@@ -2,45 +2,46 @@
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
-<header class="site-home-header">
+{{!-- Site Nav --}}
+{{> "site-nav"}}
+
+{{!-- Hero --}}
+<section class="hero is-info is-large">
     <div id="flow">
         <span class="flow-1"></span>
         <span class="flow-2"></span>
         <span class="flow-3"></span>
     </div>
+
     {{> header-background background=@site.cover_image}}
     {{!--Special header-image.hbs partial to generate the background image--}}
-    <div class="inner">
-        {{> "site-nav"}}
-        <div class="site-header-content">
-            <h1 class="site-title">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
                 {{#if @site.logo}}
                 <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
                 {{else}}
                 {{@site.title}}
                 {{/if}}
             </h1>
-            <h2 class="site-description">{{@site.description}}</h2>
+            <h2 class="subtitle">
+                {{@site.description}}
+            </h2>
         </div>
     </div>
-    </div>
-</header>
+</section>
 
 {{!-- The main content area --}}
-<main id="site-main" class="site-main outer">
-    <div class="inner posts">
+<section class="section" role="main">
+    <div class="container">
 
-        <div class="post-feed">
-            {{#foreach posts}}
-
-            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-            {{> "post-card"}}
-
-            {{/foreach}}
-        </div>
+        {{#foreach posts}}
+        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+        {{> "post-card"}}
+        {{/foreach}}
 
     </div>
-</main>
+</section>
 
 {{> site-header}}
 
