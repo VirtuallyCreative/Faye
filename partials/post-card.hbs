@@ -5,7 +5,7 @@
         {{#if feature_image}}
         <a class="post-card-image-link" href="{{url}}">
             <div class="card-image">
-                <figure class="image is-4by3">
+                <figure class="image is-16by9">
                     {{!-- This is a responsive image, it loads different sizes depending on device
                 https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
                     <img class="post-card-image" srcset="{{img_url feature_image size="s"}} 300w,
@@ -19,35 +19,35 @@
         {{/if}}
 
         <div class="card-content">
-            <a class="is-2" href="{{url}}">
-                <h2>{{title}}</h2>
-            </a>
             <div class="media">
                 <div class="media-left">
-                    <figure class="image is-48x48 is-rounded">
+                    <figure class="image is-48x48">
                         {{#if profile_image}}
                         <a href="{{url}}" class="static-avatar">
-                            <img class="author-profile-image" src="{{img_url profile_image size="xs"}}"
-                                alt="{{name}}" />
+                            <img class="is-rounded" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
                         </a>
-                        {{else}}
-                        {{!-- replace with bulma's Icon classes --}}
-                        <a href="{{url}}" class="static-avatar author-profile-image">{{> "icons/avatar"}}</a>
-                        {{/if}}
                     </figure>
+                    {{else}}
+                    {{!-- replace with bulma's Icon classes --}}
+                    <a href="{{url}}">
+                        <span class="icon is-large">
+                            <i class="fas fa-lg fa-user-astronaut"></i>
+                        </span>
+                    </a>
+                    {{/if}}
                 </div>
                 <div class="media-content">
                     {{#foreach authors}}
                     <p class="title is-4">{{name}}</p>
                     {{/foreach}}
-                    <p class="subtitle is-6">{{#has author="count:>2"}}@Multiple authors{{else}}@{{authors}}{{/has}}</p>
-                    <p class="is-small"><time
-                            datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span
-                            class="bull">&bull;</span> {{reading_time}}</p>
+                    <p class="subtitle is-6">{{#has author="count:>2"}}@Multiple authors{{else}}@{{authors}}{{/has}}
+                    </p>
                 </div>
             </div>
+            <div class="is-divider" data-content="TL;DR"></div>
 
             <div class="content">
+                <h2>{{title}}</h2>
                 {{#if feature_image}}
                 <p>{{excerpt words="35"}}</p>
                 {{else}}
@@ -55,15 +55,28 @@
                 {{/if}}
                 <br>
             </div>
+            {{#if primary_tag}}
+            <div class="tags are-small">
+                {{#primary_tag}}
 
+                <span class="tag is-rounded">{{name}}</span>
+
+                {{/primary_tag}}
+            </div>
+            {{/if}}
         </div>{{!--/.post-card-content--}}
 
+
         <footer class="card-footer">
-            {{#if primary_tag}}
-            {{#primary_tag}}
-            <p class="card-footer-item"><span>{{name}}</span></p>
-            {{/primary_tag}}
-            {{/if}}
+            <p class="card-footer-item">
+                <a href="{{url}}">
+                    Read More...
+                </a>
+            </p>
+            <p class="card-footer-item is-size-7"><time
+                    datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>&nbsp;<span
+                    class="bull">&bull;</span>&nbsp;{{reading_time}}
+            </p>
         </footer>
     </article>
 </div>

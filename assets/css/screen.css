@@ -31,6 +31,7 @@ production stylesheet in assets/built/screen.css
 /* 1. Global - Set up bulma -- https://bulma.io
 /* ---------------------------------------------------------- */
 @import "bulma.css";
+@import "builma-divider.css";
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 /* 2. Layout - Page building blocks

@@ -10,9 +10,7 @@
 {{else}}
 
 {{#foreach navigation}}
-<li {{#if current}}is-active{{/if}}>
-    <a class="nav-{{slug}}" href="{{url absolute="true"}}">{{label}}</a>
-</li>
+<a class="navbar-item {{slug}} {{#if current}}is-active{{/if}}" href="{{url absolute="true"}}">{{label}}</a>
 {{/foreach}}
 
 {{/if}}
