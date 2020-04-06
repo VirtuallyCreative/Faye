@@ -1,7 +1,8 @@
 <div class="column is-one-third">
+
+
     <article
         class="card {{post_class}} {{#unless feature_image}}no-image{{else}}{{#is "home"}}{{#has index="nth:6"}}post-card-large{{/has}}{{/is}}{{/unless}}">
-
         {{#if feature_image}}
         <div class="card-image">
             <figure class="image is-4by3">
@@ -18,20 +19,21 @@
         </div>
         {{/if}}
 
-        <header class="card-header">
-            <a class="card-header-title" href="{{url}}">
-                {{title}}
-            </a>
-            {{#if primary_tag}}
-            {{#primary_tag}}
-            <div class="post-card-primary-tag">{{name}}</div>
-            {{/primary_tag}}
-            {{/if}}
-        </header>
         <div class="card-content">
+            <a class="" href="{{url}}">
+                <h2>{{title}}</h2>
+            </a>
+            <div class="content">
+                {{#if feature_image}}
+                <p>{{excerpt words="30"}}</p>
+                {{else}}
+                <p>{{excerpt words="44"}}</p>
+                {{/if}}
+                <br>
+            </div>
             <div class="media">
                 <div class="media-left">
-                    <figure class="image is-48x48">
+                    <figure class="image is-48x48 is-rounded">
                         {{#if profile_image}}
                         <a href="{{url}}" class="static-avatar">
                             <img class="author-profile-image" src="{{img_url profile_image size="xs"}}"
@@ -44,36 +46,23 @@
                     </figure>
                 </div>
                 <div class="media-content">
-                    <p class="title is-4">John Smith</p>
-                    <p class="subtitle is-6">@johnsmith</p>
+                    {{#foreach authors}}
+                    <p class="title is-4">{{name}}</p>
+                    {{/foreach}}
+                    <p class="subtitle is-6">{{#has author="count:>2"}}@Multiple authors{{else}}@{{authors}}{{/has}}</p>
+                    <p class="is-small"><time
+                            datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span
+                            class="bull">&bull;</span> {{reading_time}}</p>
                 </div>
-            </div>
-            <div class="content">
-                {{#if feature_image}}
-                <p>{{excerpt words="30"}}</p>
-                {{else}}
-                <p>{{excerpt words="44"}}</p>
-                {{/if}}
-                <br>
-                <span class="post-card-byline-date"><time
-                        datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time> <span
-                        class="bull">&bull;</span> {{reading_time}}</span>
             </div>
         </div>{{!--/.post-card-content--}}
 
         <footer class="card-footer">
-            <ul class="author-list">
-                {{#foreach authors}}
-                <li class="author-list-item">
-                    <div class="author-name-tooltip">
-                        {{name}}
-                    </div>
-                </li>
-                {{/foreach}}
-            </ul>
-            <div class="post-card-byline-content">
-                <span>{{#has author="count:>2"}}Multiple authors{{else}}{{authors}}{{/has}}</span>
-            </div>
+            {{#if primary_tag}}
+            {{#primary_tag}}
+            <p class="card-footer-item"><span>{{name}}</span></p>
+            {{/primary_tag}}
+            {{/if}}
         </footer>
     </article>
 </div>

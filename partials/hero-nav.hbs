@@ -17,9 +17,7 @@
 
         <div id="navbarMenuHeroA" class="navbar-menu">
             <div class="navbar-start">
-                {{#if @site.navigation}}
-                {{navigation}}
-                {{/if}}
+                {{> "nav-search"}}
             </div>
 
             <div class="navbar-end">
@@ -31,28 +29,27 @@
 
                         {{#if @site.facebook}}
 
-                        <a class="button is-primary is-inverted" href="{{facebook_url @site.facebook}}" title="Facebook"
-                            target="_blank" rel="noopener">
-                            <span class="icon">
+                        <a class="button" href="{{facebook_url @site.facebook}}" title="Facebook" target="_blank"
+                            rel="noopener">
+                            <span class="icon is-large">
                                 <i class="fab fa-facebook-square"></i>
                             </span>
                         </a>
 
                         {{/if}}
                         {{#if @site.twitter}}
-                        <a class="button is-primary is-inverted" href="{{twitter_url @site.twitter}}" title="Twitter"
-                            target="_blank" rel="noopener">
-                            <span class="icon">
+                        <a class="button" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank"
+                            rel="noopener">
+                            <span class="icon is-large">
                                 <i class="fab fa-twitter-square"></i>
                             </span>
                         </a>
                         {{/if}}
 
                         {{#unless @labs.members}}
-                        <a class="button is-primary is-inverted"
-                            href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank"
-                            rel="noopener">
-                            <span class="icon">
+                        <a class="button" href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS"
+                            target="_blank" rel="noopener">
+                            <span class="icon is-large">
                                 <i class="fas fa-rss-square"></i>
                             </span>
                         </a>
@@ -60,8 +57,8 @@
 
 
                         {{#if @labs.members}}
-                        <a class="button is-primary is-inverted" href="#subscribe">
-                            <span class="icon">
+                        <a class="button is-light" href="#subscribe">
+                            <span class="icon is-large">
                                 <i class="fab fa-user"></i>
                             </span>
                             <span>Subscribe</span>
@@ -69,10 +66,7 @@
                         {{/if}}
 
                         {{#is "post"}}
-                        <a class="button is-primary {{#unless @site.logo}}dash{{/unless}}">
-                            <span class="icon">
-                                <i class="fab fa-github"></i>
-                            </span>
+                        <a class="button is-light {{#unless @site.logo}}dash{{/unless}}" href="{{url}}">
                             <span>{{post.title}}</span>
                         </a>
                         {{/is}}

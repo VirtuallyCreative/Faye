@@ -1,15 +1,11 @@
 {{!-- Hero --}}
 {{> header-background background=@site.cover_image}}
 {{!--Special header-image.hbs partial to generate the background image--}}
-<div id="flow">
-    <span class="flow-1"></span>
-    <span class="flow-2"></span>
-    <span class="flow-3"></span>
-</div>
+
 <!-- Hero head: will stick at the top -->
 <div class="hero-head">
-    {{> "site-nav"}}
-    {{!-- partials/site-nav.hbs --}}
+    {{> "hero-nav"}}
+    {{!-- partials/hero-nav.hbs --}}
 </div>
 
 <!-- Hero content: will be in the middle -->
@@ -30,7 +26,7 @@
 
 <!-- Hero footer: will stick at the bottom -->
 <div class="hero-foot">
-    {{!-- Can I leave this empty? --}}
+    {{> "hero-foot-nav"}}
 </div>
 
 </div>

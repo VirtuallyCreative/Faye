@@ -7,6 +7,7 @@ production stylesheet in assets/built/screen.css
 1.  Global Styles - Done
 2.  Layout - In Progress
 3.  Special Templates
+  3.1 BG Hero Animation
 4.  Site Header
   4.1 Home header
   4.2 Archive header
@@ -30,9 +31,22 @@ production stylesheet in assets/built/screen.css
 /* 1. Global - Set up bulma -- https://bulma.io
 /* ---------------------------------------------------------- */
 @import "bulma.css";
-
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 /* 2. Layout - Page building blocks
+/* ---------------------------------------------------------- */
+
+html,
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* 3. Special Templates
+/* ---------------------------------------------------------- */
+
+
+/* 3.1 -- Custom BG Hero Animation
+/* ./partials/header-background.hbs
 /* ---------------------------------------------------------- */
 
 @-webkit-keyframes rotating {
@@ -119,21 +133,8 @@ production stylesheet in assets/built/screen.css
     animation: rotating 2s linear infinite;
 }
 
-
-strong {
-    color: #81c0ff;
-}
-
-.fa {
-    color: #81c0ff;
-    margin: 10px;
-}
-
-.filtered {
-    display: none;
-}
-
-/* 3.
+/* 3.2 -- Something
+/* template-location
 /* ---------------------------------------------------------- */
 
 
