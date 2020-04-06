@@ -5,7 +5,7 @@ This is a development CSS file which is built to a minified
 production stylesheet in assets/built/screen.css
 
 1.  Global Styles - Done
-2.  Layout
+2.  Layout - In Progress
 3.  Special Templates
 4.  Site Header
   4.1 Home header
@@ -27,7 +27,7 @@ production stylesheet in assets/built/screen.css
 */
 
 
-/* 1. Global - Set up the things
+/* 1. Global - Set up bulma -- https://bulma.io
 /* ---------------------------------------------------------- */
 @import "bulma.css";
 
@@ -35,9 +35,6 @@ production stylesheet in assets/built/screen.css
 /* 2. Layout - Page building blocks
 /* ---------------------------------------------------------- */
 
-
-
-/* Snazzy Animation */
 @-webkit-keyframes rotating {
     from {
         -ms-transform: rotate(0deg);
@@ -121,3 +118,36 @@ production stylesheet in assets/built/screen.css
     -o-animation: rotating 2s linear infinite;
     animation: rotating 2s linear infinite;
 }
+
+
+strong {
+    color: #81c0ff;
+}
+
+.fa {
+    color: #81c0ff;
+    margin: 10px;
+}
+
+.filtered {
+    display: none;
+}
+
+/* 3.
+/* ---------------------------------------------------------- */
+
+
+/* 4. Layout - Page building blocks
+/* ---------------------------------------------------------- */
+
+
+/* 5. Layout - Page building blocks
+/* ---------------------------------------------------------- */
+
+
+/* 6. Layout - Page building blocks
+/* ---------------------------------------------------------- */
+
+
+/* 11. Site Footer
+/* ---------------------------------------------------------- */

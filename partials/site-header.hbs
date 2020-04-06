@@ -1,5 +1,39 @@
-<div class="outer site-nav-main">
-    <div class="inner">
-        {{> "site-nav"}}
+{{!-- Hero --}}
+{{> header-background background=@site.cover_image}}
+{{!--Special header-image.hbs partial to generate the background image--}}
+<div id="flow">
+    <span class="flow-1"></span>
+    <span class="flow-2"></span>
+    <span class="flow-3"></span>
+</div>
+<!-- Hero head: will stick at the top -->
+<div class="hero-head">
+    {{> "site-nav"}}
+    {{!-- partials/site-nav.hbs --}}
+</div>
+
+<!-- Hero content: will be in the middle -->
+<div class="hero-body">
+    <div class="container has-text-centered">
+        <h1 class="title">
+            {{#if @site.logo}}
+            <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
+            {{else}}
+            {{@site.title}}
+            {{/if}}
+        </h1>
+        <h2 class="subtitle">
+            {{@site.description}}
+        </h2>
     </div>
 </div>
+
+<!-- Hero footer: will stick at the bottom -->
+<div class="hero-foot">
+    {{!-- Can I leave this empty? --}}
+</div>
+{{/if}}
+
+
+</div>
+</section>

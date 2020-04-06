@@ -2,48 +2,19 @@
 {{!-- The tag above means: insert everything in this file
 into the {body} of the default.hbs template --}}
 
-{{!-- Site Nav --}}
-{{> "site-nav"}}
-
-{{!-- Hero --}}
-<section class="hero is-info is-large">
-    <div id="flow">
-        <span class="flow-1"></span>
-        <span class="flow-2"></span>
-        <span class="flow-3"></span>
-    </div>
-
-    {{> header-background background=@site.cover_image}}
-    {{!--Special header-image.hbs partial to generate the background image--}}
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">
-                {{#if @site.logo}}
-                <img class="site-logo" src="{{img_url @site.logo size="l"}}" alt="{{@site.title}}" />
-                {{else}}
-                {{@site.title}}
-                {{/if}}
-            </h1>
-            <h2 class="subtitle">
-                {{@site.description}}
-            </h2>
-        </div>
-    </div>
-</section>
+{{> site-header}}
 
 {{!-- The main content area --}}
 <section class="section" role="main">
     <div class="container">
-
-        {{#foreach posts}}
-        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-        {{> "post-card"}}
-        {{/foreach}}
-
+        <div class="columns is-multiline is-mobile">
+            {{#foreach posts}}
+            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+            {{> "post-card"}}
+            {{/foreach}}
+        </div>
     </div>
 </section>
-
-{{> site-header}}
 
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}

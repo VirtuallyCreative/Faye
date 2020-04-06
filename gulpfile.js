@@ -169,7 +169,7 @@ exports.release = () => {
             preRelease: false,
             tagName: newVersion,
             releaseName: newVersion,
-            userAgent: 'Casper',
+            userAgent: 'Faye',
             uri: `https://api.github.com/repos/${REPO}/releases`,
             github: {
                 token: config.github.token

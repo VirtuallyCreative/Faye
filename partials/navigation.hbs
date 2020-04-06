@@ -1,0 +1,19 @@
+{{#if isSecondary}}
+{{#foreach navigation}}
+
+<a class="button is-primary is-inverted" href="{{url}}">
+    <span class="icon">
+        <i class="fab fa-{{slug}}"></i>
+    </span>
+    <span>{{slug}}</span>
+</a>
+
+{{/foreach}}
+
+{{else}}
+
+{{#foreach navigation}}
+<a class="navbar-item nav-{{slug}} {{#if current}}is-active{{/if}}" href="{{url absolute="true"}}">{{label}}</a>
+{{/foreach}}
+
+{{/if}}
