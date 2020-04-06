@@ -25,7 +25,7 @@
             <div class="navbar-end">
                 <div class="navbar-item">
                     <div class="buttons">
-                        {{#if @site.secondary_navigation}}
+                        {{!-- {{#if @site.secondary_navigation}}
                         {{navigation type="secondary"}}
                         {{else}}
 
@@ -36,7 +36,6 @@
                             <span class="icon">
                                 <i class="fab fa-facebook-square"></i>
                             </span>
-                            <span>Facebook</span>
                         </a>
 
                         {{/if}}
@@ -46,18 +45,16 @@
                             <span class="icon">
                                 <i class="fab fa-twitter-square"></i>
                             </span>
-                            <span>Twitter</span>
                         </a>
-                        {{/if}}
+                        {{/if}} --}}
 
-                        {{#unless @labs.members}}
+                        {{!-- {{#unless @labs.members}}
                         <a class="button is-primary is-inverted"
                             href="https://feedly.com/i/subscription/feed/{{@site.url}}/rss/" title="RSS" target="_blank"
                             rel="noopener">
                             <span class="icon">
                                 <i class="fas fa-rss-square"></i>
                             </span>
-                            <span>RSS Feed</span>
                         </a>
                         {{/unless}}
 
@@ -70,6 +67,7 @@
                             <span>Subscribe</span>
                         </a>
                         {{/if}}
+
                         {{#is "post"}}
                         <a class="button is-primary {{#unless @site.logo}}dash{{/unless}}">
                             <span class="icon">
@@ -77,7 +75,7 @@
                             </span>
                             <span>{{post.title}}</span>
                         </a>
-                        {{/is}}
+                        {{/is}} --}}
                     </div>
                 </div>
             </div>
