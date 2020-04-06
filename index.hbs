@@ -26,7 +26,7 @@ into the {body} of the default.hbs template --}}
     //   scrolling but continuous processing even when not scrolling
     $(document).ready(function () {
 
-        var nav = document.querySelector('.navbar');
+        var nav = document.querySelector('.hero-head');
         var feed = document.querySelector('.post-feed');
 
         var lastScrollY = window.scrollY;
@@ -70,6 +70,12 @@ into the {body} of the default.hbs template --}}
         window.addEventListener('resize', onResize, false);
 
         update();
+
+        //    Faye.stickyTitle({
+        //        navSelector: '.navbar-start',
+        //        titleSelector: '.post-full-title',
+        //        activeClass: 'nav-post-title-active'
+        //    });
 
     });
 </script>

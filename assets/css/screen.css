@@ -139,9 +139,19 @@ body {
 /* ---------------------------------------------------------- */
 
 
-/* 4. Layout - Page building blocks
+/* 4. Site Header - Main Nav
 /* ---------------------------------------------------------- */
+.nav-post-title-active .nav {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-175%);
+}
 
+.nav-post-title-active .nav-post-title {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* 5. Layout - Page building blocks
 /* ---------------------------------------------------------- */
