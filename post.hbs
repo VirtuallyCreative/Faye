@@ -113,9 +113,23 @@ into the {body} of the default.hbs template --}}
             {{> subscribe-form}}
             {{/if}}
 
-            {{!--
+            {{!-- If you want to embed discourse comments, simply uncomment this block!
+                  follow the guide here: https://ghost.org/integrations/discourse/
             <section class="post-full-comments">
-                If you want to embed comments, this is a good place to do it!
+                <div id='discourse-comments'></div>
+                <script type="text/javascript">
+                    if (window.location.pathname.indexOf('/p/') < 0) {
+                        DiscourseEmbed = {
+                            discourseUrl: 'https://your.forum.install.com/',
+                            discourseEmbedUrl: '{{url absolute="true"}}';
+
+                (function () {
+                                var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+                                d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+                                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+                            })();
+                    }
+                </script>
             </section>
             --}}
 
