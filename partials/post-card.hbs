@@ -1,36 +1,27 @@
-<div class="column is-one-third">
-
+<div class="column is-one-third is-full-mobile">
 
     <article
         class="card {{post_class}} {{#unless feature_image}}no-image{{else}}{{#is "home"}}{{#has index="nth:6"}}post-card-large{{/has}}{{/is}}{{/unless}}">
         {{#if feature_image}}
-        <div class="card-image">
-            <figure class="image is-4by3">
-                <a class="post-card-image-link" href="{{url}}">
+        <a class="post-card-image-link" href="{{url}}">
+            <div class="card-image">
+                <figure class="image is-4by3">
                     {{!-- This is a responsive image, it loads different sizes depending on device
-            https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
+                https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
                     <img class="post-card-image" srcset="{{img_url feature_image size="s"}} 300w,
-                        {{img_url feature_image size="m"}} 600w,
-                        {{img_url feature_image size="l"}} 1000w,
-                        {{img_url feature_image size="xl"}} 2000w" sizes="(max-width: 1000px) 400px, 700px"
+                            {{img_url feature_image size="m"}} 600w,
+                            {{img_url feature_image size="l"}} 1000w,
+                            {{img_url feature_image size="xl"}} 2000w" sizes="(max-width: 1000px) 400px, 700px"
                         loading="lazy" src="{{img_url feature_image size="m"}}" alt="{{title}}" />
-                </a>
-            </figure>
-        </div>
+                </figure>
+            </div>
+        </a>
         {{/if}}
 
         <div class="card-content">
-            <a class="" href="{{url}}">
+            <a class="is-2" href="{{url}}">
                 <h2>{{title}}</h2>
             </a>
-            <div class="content">
-                {{#if feature_image}}
-                <p>{{excerpt words="30"}}</p>
-                {{else}}
-                <p>{{excerpt words="44"}}</p>
-                {{/if}}
-                <br>
-            </div>
             <div class="media">
                 <div class="media-left">
                     <figure class="image is-48x48 is-rounded">
@@ -55,6 +46,16 @@
                             class="bull">&bull;</span> {{reading_time}}</p>
                 </div>
             </div>
+
+            <div class="content">
+                {{#if feature_image}}
+                <p>{{excerpt words="35"}}</p>
+                {{else}}
+                <p>{{excerpt words="45"}}</p>
+                {{/if}}
+                <br>
+            </div>
+
         </div>{{!--/.post-card-content--}}
 
         <footer class="card-footer">
