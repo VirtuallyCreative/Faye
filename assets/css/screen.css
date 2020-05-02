@@ -98,7 +98,7 @@ body {
 }
 
 .flow-1 {
-    background: #375fe2;
+    background: #FF16AB;
     -webkit-animation: rotating 20s linear infinite;
     -moz-animation: rotating 20s linear infinite;
     -ms-animation: rotating 20s linear infinite;
@@ -107,7 +107,7 @@ body {
 }
 
 .flow-2 {
-    background: #81c0ff;
+    background: #FFD264;
     position: absolute;
     -webkit-animation: rotating 15s linear infinite;
     -moz-animation: rotating 15s linear infinite;
@@ -117,7 +117,7 @@ body {
 }
 
 .flow-3 {
-    background: #000;
+    background: #D637FF;
     position: absolute;
     -webkit-animation: rotating 7s linear infinite;
     -moz-animation: rotating 7s linear infinite;
