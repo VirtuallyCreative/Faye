@@ -14,9 +14,14 @@
 
         {{/if}}
         {{#if @site.twitter}}
-        <a class="button" href="{{twitter_url @site.twitter}}" title="Twitter" target="_blank" rel="noopener">
+        <a class="bd-tw-button button" data-social-network="Twitter" data-social-action="tweet"
+            data-social-target="https://github.com/VirtuallyCreative/Faye" target="_blank"
+            href="{{twitter_url @site.twitter}}">
             <span class="icon is-large">
-                <i class="fab fa-twitter-square"></i>
+                <i class="fab fa-twitter"></i>
+            </span>
+            <span>
+                Tweet
             </span>
         </a>
         {{/if}}
