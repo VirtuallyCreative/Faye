@@ -1,42 +1,82 @@
 <div class="column is-one-third is-full-mobile">
-    <a href="{{url}}" class="canvas {{post_class}} ">
-        <div class="canvas_border">
-            <svg>
-                <defs>
-                    <linearGradient id="grad-orange" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" style="stop-color:rgb(253,137,68);stop-opacity:1"></stop>
-                        <stop offset="100%" style="stop-color:rgb(153,75,23);stop-opacity:1"></stop>
-                    </linearGradient>
-                    <linearGradient id="grad-red" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="#D34F48"></stop>
-                        <stop offset="100%" stop-color="#772522"></stop>
-                    </linearGradient>
-                </defs>
-                <rect id="rect-grad" class="rect-gradient" fill="none" stroke="url(#grad-orange)"
-                    stroke-linecap="square" stroke-width="4" stroke-miterlimit="30" width="100%" height="100%"></rect>
-            </svg>
-        </div>
-        <div
-            class="canvas_img-wrapper {{#unless feature_image}}no-image{{else}}{{#is "home"}}{{#has index="nth:6"}}post-card-large{{/has}}{{/is}}{{/unless}}">
-            <figure class="">
-                {{!-- This is a responsive image, it loads different sizes depending on device
+
+    <article
+        class="card {{post_class}} {{#unless feature_image}}no-image{{else}}{{#is "home"}}{{#has index="nth:6"}}post-card-large{{/has}}{{/is}}{{/unless}}">
+        {{#if feature_image}}
+        <a class="post-card-image-link" href="{{url}}">
+            <div class="card-image">
+                <figure class="image is-16by9">
+                    {{!-- This is a responsive image, it loads different sizes depending on device
                 https://medium.freecodecamp.org/a-guide-to-responsive-images-with-ready-to-use-templates-c400bd65c433 --}}
-                <img class="canvas_img" srcset="{{img_url feature_image size="s"}} 300w,
+                    <img class="post-card-image" srcset="{{img_url feature_image size="s"}} 300w,
                             {{img_url feature_image size="m"}} 600w,
                             {{img_url feature_image size="l"}} 1000w,
                             {{img_url feature_image size="xl"}} 2000w" sizes="(max-width: 1000px) 400px, 700px"
-                    loading="lazy" src="{{img_url feature_image size="m"}}" alt="{{title}}" />
-            </figure>
-            {{!-- <img class="canvas_img" src="{{img_url profile_image size="xs"}}" alt="{{name}}"> --}}
-        </div>
-        <div class="canvas_copy canvas_copy--left">
+                        loading="lazy" src="{{img_url feature_image size="m"}}" alt="{{title}}" />
+                </figure>
+            </div>
+        </a>
+        {{/if}}
+
+        <div class="card-content">
+            <div class="media">
+                <div class="media-left">
+                    <figure class="image is-48x48">
+                        {{#if profile_image}}
+                        <a href="{{url}}" class="static-avatar">
+                            <img class="is-rounded" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
+                        </a>
+                    </figure>
+                    {{else}}
+                    {{!-- replace with bulma's Icon classes --}}
+                    <a href="{{url}}">
+                        <span class="icon is-large">
+                            <i class="fas fa-lg fa-user-astronaut"></i>
+                        </span>
+                    </a>
+                    {{/if}}
+                </div>
+                <div class="media-content">
+                    {{#foreach authors}}
+                    <p class="title is-4">{{name}}</p>
+                    {{/foreach}}
+                    <p class="subtitle is-6">{{#has author="count:>2"}}@Multiple authors{{else}}@{{authors}}{{/has}}
+                    </p>
+                </div>
+            </div>
+            <div class="is-divider" data-content="TL;DR"></div>
+
+            <div class="content">
+                <h2>{{title}}</h2>
+                {{#if feature_image}}
+                <p>{{excerpt words="35"}}</p>
+                {{else}}
+                <p>{{excerpt words="45"}}</p>
+                {{/if}}
+                <br>
+            </div>
             {{#if primary_tag}}
-            {{#primary_tag}}
-            <span class="canvas_copy_subtitle">{{name}}</span>
-            {{/primary_tag}}
+            <div class="tags are-small">
+                {{#primary_tag}}
+
+                <span class="tag is-rounded">{{name}}</span>
+
+                {{/primary_tag}}
+            </div>
             {{/if}}
-            <strong class="canvas_copy_title">{{title}}</strong>
-            <span class="canvas_copy_details">{{excerpt words="5"}}</span>
-        </div>
-    </a>
+        </div>{{!--/.post-card-content--}}
+
+
+        <footer class="card-footer">
+            <p class="card-footer-item">
+                <a href="{{url}}">
+                    Read More...
+                </a>
+            </p>
+            <p class="card-footer-item is-size-7"><time
+                    datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>&nbsp;<span
+                    class="bull">&bull;</span>&nbsp;{{reading_time}}
+            </p>
+        </footer>
+    </article>
 </div>

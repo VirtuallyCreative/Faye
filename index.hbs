@@ -5,12 +5,12 @@ into the {body} of the default.hbs template --}}
 {{> site-header}}
 
 {{!-- The main content area --}}
-<section class="section" role="main">
-    <div class="container">
-        <div class="columns is-multiline is-mobile post-group">
+<section class="section has-background-light pb-6 mb-6" role="main">
+    <div id="main-post-grid">
+        <div class="post-group">
             {{#foreach posts}}
-            {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
-            {{> "post-card"}}
+            {{!-- The tag below includes the markup for each post - partials/post-card-fancy.hbs --}}
+            {{> "post-card-fancy"}}
             {{/foreach}}
         </div>
     </div>

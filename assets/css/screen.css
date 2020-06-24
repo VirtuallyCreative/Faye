@@ -42,16 +42,25 @@ production stylesheet in assets/built/screen.css
     /* Colours */
     --blue: #3eb0ef;
     --green: #a4d037;
-    --purple: #ad26b4;
-    --yellow: #fecd35;
+    --purple: #D637FF;
+    --yellow: #FFD264;
     --red: #f05230;
     --darkgrey: #15171A;
     --midgrey: #738a94;
     --lightgrey: #c5d2d9;
     --whitegrey: #e5eff5;
-    --pink: #fa3a57;
+    --pink: #FF16AB;
     --brown: #a3821a;
     --darkmode: color(var(--darkgrey) l(+2%));
+    --background-dark: #2d3548;
+    --text-light: rgba(255, 255, 255, 0.6);
+    --text-lighter: rgba(255, 255, 255, 0.9);
+    --spacing-s: 8px;
+    --spacing-m: 16px;
+    --spacing-l: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 64px;
+    --width-container: 1200px;
 }
 
 /* 2. Layout - Page building blocks
@@ -63,11 +72,105 @@ body {
 }
 
 /* 3. Special Templates
+/* ./partials/post-card.hbs
 /* ---------------------------------------------------------- */
 
-.post-group>.column:nth-child(n+4) {
-    margin-top: 3em;
+.card {
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
 }
+
+/* ./partals/post-card-fancy.hbs
+/* ---------------------------------------------------------- */
+
+#main-post-grid {
+    align-items: flex-start;
+    display: flex;
+    min-height: 100%;
+    justify-content: center;
+    padding: var(--spacing-xxl) var(--spacing-l);
+}
+
+.post-group {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: var(--spacing-l);
+    grid-row-gap: var(--spacing-l);
+    max-width: var(--width-container);
+    width: 100%;
+}
+
+@media(min-width: 540px) {
+    .post-group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width: 960px) {
+    .post-group {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.fancy-card {
+    list-style: none;
+    position: relative;
+}
+
+.fancy-card:before {
+    content: '';
+    display: block;
+    padding-bottom: 150%;
+    width: 100%;
+}
+
+.card__background {
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--spacing-l);
+    bottom: 0;
+    filter: brightness(0.75) saturate(1.2) contrast(0.85);
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform-origin: center;
+    trsnsform: scale(1) translateZ(0);
+    transition:
+        filter 200ms linear,
+        transform 200ms linear;
+}
+
+.fancy-card:hover .card__background {
+    transform: scale(1.05) translateZ(0);
+}
+
+.post-group:hover>.fancy-card:not(:hover) .card__background {
+    filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+}
+
+.card__content {
+    left: 0;
+    padding: var(--spacing-l);
+    position: absolute;
+    top: 0;
+}
+
+.card__category {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-s);
+    text-transform: uppercase;
+}
+
+.card__heading {
+    color: var(--text-lighter);
+    font-size: 1.9rem;
+    text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+    line-height: 1.4;
+    word-spacing: 100vw;
+}
+
 
 /* 3.1 -- Custom BG Hero Animation
 /* ./partials/header-background.hbs
@@ -121,7 +224,7 @@ body {
 }
 
 .flow-1 {
-    background: #FF16AB;
+    background: var(--pink);
     -webkit-animation: rotating 20s linear infinite;
     -moz-animation: rotating 20s linear infinite;
     -ms-animation: rotating 20s linear infinite;
@@ -130,7 +233,7 @@ body {
 }
 
 .flow-2 {
-    background: #FFD264;
+    background: var(--yellow);
     position: absolute;
     -webkit-animation: rotating 15s linear infinite;
     -moz-animation: rotating 15s linear infinite;
@@ -140,7 +243,7 @@ body {
 }
 
 .flow-3 {
-    background: #D637FF;
+    background: var(--purple);
     position: absolute;
     -webkit-animation: rotating 7s linear infinite;
     -moz-animation: rotating 7s linear infinite;
@@ -260,7 +363,7 @@ strong {
     transform: translateX(-80px);
     -webkit-transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s;
     transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0s;
-    color: black;
+    color: var(--darkgrey);
 }
 
 .canvas_copy_title:nth-child(1) {
@@ -1377,7 +1480,7 @@ Usage (In Ghost editor):
 
 .read-next {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: color(var(--darkgrey) l(-5%));
+    background: color(var(--lightgrey) l(-5%));
 }
 
 .read-next-feed {
@@ -1385,6 +1488,10 @@ Usage (In Ghost editor):
     flex-wrap: wrap;
     margin: 0 -25px;
     padding: 60px 0 0 0;
+}
+
+.read-next-feed div.column.is-one-third.is-full-mobile a.canvas.post.tag-getting-started.featured div.canvas_copy.canvas_copy--left strong.canvas_copy_titlee {
+    color: var(--purple);
 }
 
 .read-next .post-card {
