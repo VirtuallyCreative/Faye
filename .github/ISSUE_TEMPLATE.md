@@ -1,4 +1,4 @@
-Do you need help or have a question? Please come chat in our forum: https://forum.ghost.org 👫.
+Do you need help or have a question?
 
 If you're filing a bug 🐛, please include the following information:
 
@@ -7,13 +7,13 @@ If you're filing a bug 🐛, please include the following information:
 ![]()
 
 ### Steps to Reproduce
- 
+
  1. This is the first step
  2. This may be the post content used to cause an issue...
 
 ### Technical details
 
-* Casper Version:
+* Faye Version:
 * Ghost Version:
 * Browser Version:
 * OS Version:
